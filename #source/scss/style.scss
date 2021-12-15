@@ -1,0 +1,600 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@font-face {
+	font-family: "Mazzard";
+	src: url("../fonts/Mazzard/MazzardH-Regular.woff2") format("woff2"),
+		url("../fonts/Mazzard/MazzardH-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Ubuntu";
+	src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format("ttf");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Mazzard";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1440;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	padding: 0px 20px;
+	background-color: #f6f9fc;
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	padding: 60px 0 130px 0;
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	// height: 100vh;
+	background-color: #f6f9fc;
+	@media (max-width: $md1+px) {
+		max-width: 1280px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		// padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+h1 {
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 500;
+	font-size: 36px;
+	line-height: 100%;
+	text-align: center;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+
+	margin: 0px 0px 70px 0px;
+}
+h2 {
+	font-family: "Mazzard", sans-serif;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 30px;
+	text-align: center;
+	color: #39395b;
+}
+//====================================================================================================
+
+.flex {
+	width: 1280px;
+	height: 384px;
+	margin: 0 auto 140px auto;
+	position: relative;
+	&__vector {
+		position: absolute;
+		top: -25px;
+		left: -55px;
+		z-index: 3;
+		width: 1065.5px;
+		height: 220.37px;
+		img {
+			width: 1085px;
+			height: 220.37px;
+		}
+	}
+	&__row {
+		width: 100%;
+		height: 384px;
+		@include flexbox();
+		justify-content: end;
+	}
+
+	&__item {
+		align-self: stretch;
+	}
+}
+.item {
+	width: 182px;
+	height: 384px;
+	margin: 0px 19px 0px 0px;
+
+	position: relative;
+	&__card {
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		width: 182px;
+		height: 212px;
+		box-sizing: border-box;
+		background: rgba(255, 255, 255, 0.98);
+		box-shadow: 0px 10px 30px #e7eff5;
+		border-radius: 10px;
+		padding: 25px 0px 0px 0px;
+	}
+
+	&__bg-image {
+	}
+
+	&:nth-child(2) {
+		.item__bg-image {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translate(-50%, 0);
+		}
+		.item__bg-image2 {
+			position: absolute;
+			right: -10px;
+			bottom: 90px;
+		}
+	}
+
+	&:nth-child(3) {
+		.item__bg-image {
+			position: absolute;
+			left: 50%;
+			bottom: 20px;
+		}
+	}
+
+	&:nth-child(4) {
+		.item__bg-image2 {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+		.item__bg-image {
+			position: absolute;
+			left: 0;
+			bottom: 20px;
+			z-index: 2;
+		}
+	}
+
+	&:last-child {
+		.item__bg-image {
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+		}
+	}
+}
+.card {
+	&__image {
+		margin: 0 auto 15px auto;
+		width: 50px;
+		height: 50px;
+		img {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	&__text {
+		padding: 0px 8px 0px 18px;
+		p {
+			font-family: "Mazzard";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 20px;
+			letter-spacing: 0.002em;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		left: 50%;
+		top: -9px;
+		transform: translate(-50%, 0);
+	}
+}
+
+.card1-1 {
+	top: 32px;
+}
+
+.card1-2 {
+	top: -20px;
+}
+
+.card1-3 {
+	top: 70px;
+}
+
+.card1-4 {
+	top: 142px;
+}
+
+.card1-5 {
+	top: 38px;
+}
+
+.orange {
+	color: #ea7000;
+}
+
+// -----------------------------------------------------------------------------------------
+.flex2 {
+	position: relative;
+	margin: 0 auto 60px auto;
+	padding: 0 5%;
+	&__title {
+		display: none;
+	}
+
+	&__row {
+		@include flexbox();
+		justify-content: space-evenly;
+	}
+
+	&__item {
+	}
+
+	&__image1 {
+		position: absolute;
+		top: -90px;
+		left: 5%;
+	}
+
+	&__image2 {
+		position: absolute;
+		bottom: -110px;
+		right: 2%;
+	}
+}
+.card2 {
+	width: 321px;
+	height: 147px;
+	box-sizing: border-box;
+	background: #ffffff;
+	border: 1px solid #525d7d;
+	box-sizing: border-box;
+	box-shadow: 0px 10px 30px #f0f9ff;
+	border-radius: 10px;
+	text-align: center;
+	padding: 35px 40px;
+
+	&:nth-child(2) {
+		padding: 35px 20px;
+	}
+
+	position: relative;
+
+	&__button {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+
+		position: absolute;
+		top: -1px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		width: 52px;
+		height: 52px;
+		background: #ffffff;
+		border: 2px solid #525d7d;
+		box-sizing: border-box;
+		border-radius: 50%;
+
+		a img {
+			background-color: #ffd15c;
+			padding: 10px;
+			border-radius: 50%;
+			&:hover {
+				background-color: #c3e5fe;
+			}
+		}
+	}
+
+	&__link {
+		// pointer-events: none;
+		cursor: pointer;
+	}
+
+	&__text {
+		font-family: Mazzard;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		text-align: center;
+	}
+}
+.page-button {
+	text-align: center;
+	&__link {
+		padding: 22px 35px;
+		font-family: Mazzard;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 18px;
+		color: white;
+		background: linear-gradient(196.16deg, #24b300 -21.03%, #00b388 93.14%);
+		border-radius: 5px;
+		&:hover {
+			background: linear-gradient(196.16deg, #22a502 -21.03%, #02a17c 93.14%);
+		}
+	}
+}
+
+@media (max-width: 1320px) {
+	.flex {
+		width: 100%;
+		margin: 0 auto 100px auto;
+	}
+	.flex__vector {
+		display: none;
+	}
+	.flex__row {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 1250px) {
+	.item__card {
+		position: static;
+	}
+	.item:last-child {
+		display: none;
+	}
+	.item__bg-image2 {
+		display: none;
+	}
+}
+
+@media (max-width: 1170px) {
+	.flex2__row {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.card2 {
+		margin: 0px 10px 40px 10px;
+	}
+
+	.flex {
+		height: 100%;
+	}
+
+	.flex__row {
+		flex-wrap: wrap;
+		height: 100%;
+	}
+
+	.item {
+		height: 100%;
+		margin: 10px;
+	}
+	.item__bg-image {
+		display: none;
+	}
+}
+
+@media (max-width: $md3+px) {
+	.container {
+		padding: 30px 25px 180px 25px;
+	}
+	.flex2 {
+		margin: 0 auto 25px auto;
+	}
+	.flex2__image2 {
+		position: absolute;
+		bottom: -200px;
+		right: 2%;
+	}
+}
+
+@media (max-width: $md4+px) {
+	.wrapper {
+		padding: 0px;
+	}
+
+	.container {
+		padding: 29px 0px 170px 0px;
+	}
+	.flex {
+		margin: 0px 0px 20px 0px;
+	}
+	.item__card {
+		width: 127px;
+		height: 166px;
+
+		padding: 15px 0px 0px 0px;
+	}
+
+	.card__button {
+		display: none;
+	}
+
+	.card__text {
+		text-align: center;
+		padding: 0px 8px 0px 8px;
+		p {
+			font-size: 12px;
+			line-height: 16px;
+		}
+	}
+
+	.item {
+		width: 127px;
+		height: 166px;
+		&:nth-child(4) {
+			display: none;
+		}
+	}
+
+	h1 {
+		font-size: 22px;
+		margin: 0px 0px 15px 0px;
+	}
+
+	.flex2__title {
+		display: block;
+		margin: 0px 0px 40px 0px;
+	}
+
+	.flex2__image1 {
+		position: absolute;
+		top: 340px;
+		left: 5%;
+	}
+
+	.flex2__image2 {
+		img {
+			width: 60px;
+		}
+
+		position: absolute;
+		bottom: -200px;
+		right: 1%;
+	}
+
+	.flex2__row {
+		display: block;
+		width: 263px;
+		height: 100px;
+		margin: 0 auto;
+
+		position: relative;
+	}
+	.card2 {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+		margin: 0;
+
+		width: 263px;
+		height: 120px;
+		&__text {
+			font-size: 14px;
+			line-height: 20px;
+		}
+		&__button {
+			width: 32px;
+			height: 32px;
+
+			border: 1px solid #525d7d;
+			a img {
+				display: block;
+				transform: scale(0.7);
+				background-color: #ffd15c;
+				padding: 8px;
+				border-radius: 50%;
+				&:hover {
+					background-color: #c3e5fe;
+				}
+			}
+		}
+	}
+
+	.page-button {
+		margin: 70px 0px 0px 0px;
+		&__link {
+			font-size: 16px;
+			padding: 20px 27px;
+		}
+	}
+
+	.card2-1 {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		z-index: 5;
+
+		.card2__button {
+			display: none;
+		}
+	}
+
+	.card2-2 {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		z-index: 6;
+
+		.card2__button {
+			display: none;
+		}
+	}
+
+	.card2-3 {
+		z-index: 7;
+	}
+
+	.b1 {
+		left: 30%;
+	}
+
+	.b2 {
+		left: 50%;
+	}
+
+	.b3 {
+		left: 70%;
+	}
+}
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
